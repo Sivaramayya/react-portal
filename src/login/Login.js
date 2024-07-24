@@ -4,10 +4,11 @@ import { UserContext } from "../context/UserContext";
 import axios from 'axios';
 
 class User {
-  constructor(email, password, id) {
+  constructor(email, password, userId,name) {
     this.email = email;
     this.password = password;
-    this.id = id;
+    this.userId = userId;
+    this.name=name;
   }
 }
 
@@ -19,13 +20,16 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:64228/user-management/users/login', {
-      const response = await axios.post('http://localhost:65082/user-management/users/login', {
+      const response = await axios.post('http://localhost:9191/user-management/users/login', {
+<<<<<<< HEAD
+=======
+     
+>>>>>>> fff4ba6b4f2261df2f602471bf889fdb7651904c
         email: loginUser.email,
         password: loginUser.password
       });
       console.log(response.data);
-      const user = new User(response.data.email, response.data.password, response.data.id); 
+      const user = new User(response.data.name,response.data.email, response.data.password, response.data.userId); 
       setUser(user); // Update context
       navigate("/welcome");
     } catch (err) {
@@ -59,7 +63,8 @@ const Login = () => {
       
       <button type="submit">Login</button>
 
-    </form><p>New User? <Link to="/register"><button type="submit">Register</button></Link></p></>
+    </form>
+    <p>New User? <Link to="/register"><button type="submit">Register</button></Link></p></>
   );
 };
 
