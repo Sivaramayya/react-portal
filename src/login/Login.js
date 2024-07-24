@@ -25,6 +25,7 @@ const Login = () => {
         email: loginUser.email,
         password: loginUser.password
       });
+      
       console.log(response.data);
       const user = new User(response.data.name,response.data.phoneNumber,response.data.email, response.data.password, response.data.address,response.data.userId); 
       setUser(user); // Update context
