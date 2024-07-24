@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { UserContext } from "../context/UserContext";
 class User {
@@ -38,13 +38,14 @@ const Register = () => {
       setUser(user);
       navigate("/welcome");
     } catch (err) {
-      console.error(err); // Log the error for debugging purposes
+      console.error(err); // Log the error for debugging purpose
       navigate("/login-failed");
     }
   };
 
   return (
-    <form onSubmit={handleRegister}>
+    <><form onSubmit={handleRegister}>
+
       <label>
         Name:
         <input
@@ -52,8 +53,8 @@ const Register = () => {
           value={registerUser.name}
           onChange={(e) => setRegisterUser({ ...registerUser, name: e.target.value })}
           placeholder="Enter name"
-          required
-        />
+          required />
+
       </label>
       <label>
         Phone Number:
@@ -62,8 +63,8 @@ const Register = () => {
           value={registerUser.phoneNumber}
           onChange={(e) => setRegisterUser({ ...registerUser, phoneNumber: e.target.value })}
           placeholder="Enter phone number"
-          required
-        />
+          required />
+
       </label>
       <label>
         Email:
@@ -72,8 +73,8 @@ const Register = () => {
           value={registerUser.email}
           onChange={(e) => setRegisterUser({ ...registerUser, email: e.target.value })}
           placeholder="Enter email"
-          required
-        />
+          required />
+
       </label>
       <label>
         Password:
@@ -82,8 +83,8 @@ const Register = () => {
           value={registerUser.password}
           onChange={(e) => setRegisterUser({ ...registerUser, password: e.target.value })}
           placeholder="Enter password"
-          required
-        />
+          required />
+
       </label>
       <label>
         Address:
@@ -92,11 +93,11 @@ const Register = () => {
           value={registerUser.address}
           onChange={(e) => setRegisterUser({ ...registerUser, address: e.target.value })}
           placeholder="Enter address"
-          required
-        />
+          required />
       </label>
       <button type="submit">Register</button>
-    </form>
+    </form><p>Already a user? <Link to="/"><button type="submit">LOGIN</button></Link></p></>
+     
   );
 };
 

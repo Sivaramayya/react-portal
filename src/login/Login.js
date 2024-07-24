@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import axios from 'axios';
 
@@ -19,6 +19,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      const response = await axios.post('http://localhost:64228/user-management/users/login', {
       const response = await axios.post('http://localhost:65082/user-management/users/login', {
         email: loginUser.email,
         password: loginUser.password
@@ -34,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <><form onSubmit={handleLogin}>
       <label>
         Username:
         <input
@@ -42,8 +43,8 @@ const Login = () => {
           value={loginUser.email}
           onChange={(e) => setLoginUser({ ...loginUser, email: e.target.value })}
           placeholder="Enter username"
-          required
-        />
+
+          required />
       </label>
       <label>
         Password:
@@ -52,12 +53,13 @@ const Login = () => {
           value={loginUser.password}
           onChange={(e) => setLoginUser({ ...loginUser, password: e.target.value })}
           placeholder="Enter password"
-          required
-        />
+          required />
       </label>
       
+      
       <button type="submit">Login</button>
-    </form>
+
+    </form><p>New User? <Link to="/register"><button type="submit">Register</button></Link></p></>
   );
 };
 
