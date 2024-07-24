@@ -12,6 +12,7 @@ const AppRoutes = () => {
       <Route path="/register" element={<Register />}/>
       <Route path="/welcome" element={<Welcome />} />
       <Route path="/login-failed" element={<LoginFailed />} />
+
     </Routes>
   );
 };

@@ -25,9 +25,11 @@ const Login = () => {
         email: loginUser.email,
         password: loginUser.password
       });
+      
       console.log(response.data);
       const orderItems = response.data.orderItems;
       const orderItemsLength = orderItems.length;
+      const orderItemsLength = response.data.orderItems.length;
       setOrderItemsLength(orderItemsLength);
       setOrderItems(orderItems);
       const user = new User(response.data.email, response.data.password, response.data.userId, response.data.name);
