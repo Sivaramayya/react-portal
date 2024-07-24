@@ -4,18 +4,11 @@ import { UserContext } from "../context/UserContext";
 import axios from 'axios';
 
 class User {
-<<<<<<< Updated upstream
-  constructor(email, password, id) {
-    this.email = email;
-    this.password = password;
-    this.id = id;
-=======
-  constructor(email, password, userId, name) {
+  constructor(email, password, userId,name) {
     this.email = email;
     this.password = password;
     this.userId = userId;
-    this.name = name;
->>>>>>> Stashed changes
+    this.name=name;
   }
 }
 
@@ -33,10 +26,7 @@ const Login = () => {
         password: loginUser.password
       });
       console.log(response.data);
-<<<<<<< Updated upstream
-      const user = new User(response.data.email, response.data.password, response.data.id); 
-      setUser(user); // Update context
-=======
+
 
       
       const orderItemsLength = response.data.orderItems.length;
@@ -44,7 +34,6 @@ const Login = () => {
 
       const user = new User(response.data.email, response.data.password, response.data.userId, response.data.name);
       setUser(user);
->>>>>>> Stashed changes
       navigate("/welcome");
     } catch (err) {
       console.error(err);
@@ -73,13 +62,10 @@ const Login = () => {
           required />
       </label>
       <button type="submit">Login</button>
-<<<<<<< Updated upstream
 
-    </form><p>New User? <Link to="/register"><button type="submit">Register</button></Link></p></>
-=======
     </form>
     <p>New User? <Link to="/register"><button type="submit">Register</button></Link></p></>
->>>>>>> Stashed changes
+
   );
 };
 
