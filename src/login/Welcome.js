@@ -1,13 +1,17 @@
 import React, { useContext,useState,useEffect } from 'react';
 import { UserContext } from '../context/UserContext';
+
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+
 const Welcome = () => {
   const { user } = useContext(UserContext);
   const [books, setBooks] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-  // const [selectedItem, setSelectedItem] = useState('');
-  // const [dropdownItems, setDropdownItems] = useState([null]);
+
+import { Link } from 'react-router-dom';
+
+const Welcome = () => {
+  const { user, orderItemsLength } = useContext(UserContext);
 
   useEffect(() => {
     fetchBooks();
@@ -37,9 +41,13 @@ const Welcome = () => {
     // setBooks([...books, itemToRemove]);
   };
   return (
-<div>
+
+    <div>
+
       <h1>Welcome {user.name}</h1>
       {user && <p>Your user ID is: {user.userId}</p>}
+      <p>Your orders are: {orderItemsLength}</p>
+
 
       <h2>Books Catalog</h2>
       <ol>
