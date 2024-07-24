@@ -20,6 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:64228/user-management/users/login', {
+      const response = await axios.post('http://localhost:65082/user-management/users/login', {
         email: loginUser.email,
         password: loginUser.password
       });
@@ -42,6 +43,7 @@ const Login = () => {
           value={loginUser.email}
           onChange={(e) => setLoginUser({ ...loginUser, email: e.target.value })}
           placeholder="Enter username"
+
           required />
       </label>
       <label>
@@ -53,6 +55,8 @@ const Login = () => {
           placeholder="Enter password"
           required />
       </label>
+      
+      
       <button type="submit">Login</button>
 
     </form><p>New User? <Link to="/register"><button type="submit">Register</button></Link></p></>

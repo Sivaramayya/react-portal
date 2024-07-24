@@ -38,13 +38,14 @@ const Register = () => {
       setUser(user);
       navigate("/welcome");
     } catch (err) {
-      console.error(err); // Log the error for debugging purposes
-      navigate("/login");
+      console.error(err); // Log the error for debugging purpose
+      navigate("/login-failed");
     }
   };
 
   return (
     <><form onSubmit={handleRegister}>
+
       <label>
         Name:
         <input
@@ -53,6 +54,7 @@ const Register = () => {
           onChange={(e) => setRegisterUser({ ...registerUser, name: e.target.value })}
           placeholder="Enter name"
           required />
+
       </label>
       <label>
         Phone Number:
@@ -62,6 +64,7 @@ const Register = () => {
           onChange={(e) => setRegisterUser({ ...registerUser, phoneNumber: e.target.value })}
           placeholder="Enter phone number"
           required />
+
       </label>
       <label>
         Email:
@@ -71,6 +74,7 @@ const Register = () => {
           onChange={(e) => setRegisterUser({ ...registerUser, email: e.target.value })}
           placeholder="Enter email"
           required />
+
       </label>
       <label>
         Password:
@@ -80,6 +84,7 @@ const Register = () => {
           onChange={(e) => setRegisterUser({ ...registerUser, password: e.target.value })}
           placeholder="Enter password"
           required />
+
       </label>
       <label>
         Address:
@@ -92,6 +97,7 @@ const Register = () => {
       </label>
       <button type="submit">Register</button>
     </form><p>Already a user? <Link to="/"><button type="submit">LOGIN</button></Link></p></>
+     
   );
 };
 
