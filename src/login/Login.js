@@ -25,6 +25,7 @@ const Login = () => {
         email: loginUser.email,
         password: loginUser.password
       });
+      
       console.log(response.data);
 
 
