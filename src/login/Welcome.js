@@ -5,8 +5,8 @@ const Welcome = () => {
 
   return (
     <div>
-      <h1>Welcome to the application!</h1>
-      {user && <p>Your user ID is: {user.id}</p>}
+      <h1>Welcome {user.name}</h1>
+      {user && <p>Your user ID is: {user.userId}</p>}
     </div>
   );
 };
