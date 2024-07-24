@@ -4,6 +4,7 @@ import Login from "../login/Login";
 import Welcome from "../login/Welcome";
 import LoginFailed from "../login/LoginFailed";
 import Register from '../Register/Register';
+import Catalogue from '../Catalogue/Catalogue';
 
 const AppRoutes = () => {
   return (
@@ -12,6 +13,8 @@ const AppRoutes = () => {
       <Route path="/register" element={<Register />}/>
       <Route path="/welcome" element={<Welcome />} />
       <Route path="/login-failed" element={<LoginFailed />} />
+      <Route path="/Catalogue" element={<Catalogue />} />
+
     </Routes>
   );
 };
