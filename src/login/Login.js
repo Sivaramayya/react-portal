@@ -14,7 +14,7 @@ class User {
 
 const Login = () => {
   const [loginUser, setLoginUser] = useState({ email: '', password: '' });
-  const { setUser, setOrderItemsLength } = useContext(UserContext);
+  const { setUser, setOrderItemsLength, setOrderItems } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -27,12 +27,11 @@ const Login = () => {
       });
       
       console.log(response.data);
-
-
-      
+      const orderItems = response.data.orderItems;
+      const orderItemsLength = orderItems.length;
       const orderItemsLength = response.data.orderItems.length;
       setOrderItemsLength(orderItemsLength);
-
+      setOrderItems(orderItems);
       const user = new User(response.data.email, response.data.password, response.data.userId, response.data.name);
       setUser(user);
       navigate("/welcome");
