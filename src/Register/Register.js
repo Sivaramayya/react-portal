@@ -34,7 +34,7 @@ const Register = () => {
         address: registerUser.address
       });
       console.log(response.data);
-      const user=new User(response.data.email, response.data.address, response.data.id,response.data.name,response.data.phoneNumber);
+      const user=new User(response.data.name,response.data.phoneNumber,response.data.email, response.data.password, response.data.address,);
       setUser(user);
       navigate("/welcome");
     } catch (err) {
