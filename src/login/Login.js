@@ -28,7 +28,6 @@ const Login = () => {
       
       console.log(response.data);
       const orderItems = response.data.orderItems;
-      const orderItemsLength = orderItems.length;
       const orderItemsLength = response.data.orderItems.length;
       setOrderItemsLength(orderItemsLength);
       setOrderItems(orderItems);
