@@ -14,24 +14,23 @@ class User {
 
 const Login = () => {
   const [loginUser, setLoginUser] = useState({ email: '', password: '' });
-  const { setUser, setOrderItemsLength } = useContext(UserContext);
+  const { setUser, setOrderItemsLength, setOrderItems } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:64228/user-management/users/login', {
-      const response = await axios.post('http://localhost:65082/user-management/users/login', {
+      const response = await axios.post('http://localhost:9191/user-management/users/login', {
+     
         email: loginUser.email,
         password: loginUser.password
       });
-      console.log(response.data);
-
-
       
+      console.log(response.data);
+      const orderItems = response.data.orderItems;
       const orderItemsLength = response.data.orderItems.length;
       setOrderItemsLength(orderItemsLength);
-
+      setOrderItems(orderItems);
       const user = new User(response.data.email, response.data.password, response.data.userId, response.data.name);
       setUser(user);
       navigate("/welcome");
