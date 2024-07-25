@@ -1,3 +1,4 @@
+
 import React, {useState,useEffect } from 'react';
 import axios from 'axios';
 
@@ -7,6 +8,7 @@ const Catalog = () => {
     const [books, setBooks] = useState([]);
     const [cartItems, setCartItems] = useState([]);
     const [showCart, setShowCart] = useState(false);
+
   
     useEffect(() => {
       fetchBooks();
@@ -21,6 +23,7 @@ const Catalog = () => {
         console.error('Error fetching books:', error);
       }
     };
+  
      // Remove the selected item from books state
     // setBooks(books.filter(book => book.id !== itemId));
     const handleAddToCart = (itemId) => {
