@@ -2,15 +2,14 @@ import React, { useContext,useState,useEffect } from 'react';
 import { UserContext } from '../context/UserContext';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 const Welcome = () => {
   const { user, orderItemsLength, orderItems } = useContext(UserContext);
   const [showOrderIds, setShowOrderIds] = useState(false);
   const handleClick = () => {
     setShowOrderIds(!showOrderIds);
-import axios from 'axios';
 
-const Welcome = () => {
-  const { user } = useContext(UserContext);
+
   const [books, setBooks] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const { user, orderItemsLength } = useContext(UserContext);
