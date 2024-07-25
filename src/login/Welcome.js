@@ -1,15 +1,17 @@
 import React, { useContext,useState,useEffect } from 'react';
 import { UserContext } from '../context/UserContext';
-
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-
 const Welcome = () => {
+  const { user, orderItemsLength, orderItems } = useContext(UserContext);
+  const [showOrderIds, setShowOrderIds] = useState(false);
+  const handleClick = () => {
+    setShowOrderIds(!showOrderIds);
+
 
   const [books, setBooks] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-
-
-
   const { user, orderItemsLength } = useContext(UserContext);
 
   useEffect(() => {
@@ -38,6 +40,7 @@ const Welcome = () => {
     setCartItems(updatedCart);
     // Add the removed item back to books state
     // setBooks([...books, itemToRemove]);
+
   };
   return (
 
@@ -45,9 +48,18 @@ const Welcome = () => {
 
       <h1>Welcome {user.name}</h1>
       {user && <p>Your user ID is: {user.userId}</p>}
-      <p>Your orders are: {orderItemsLength}</p>
-
-
+      <p>
+        <a href="#" onClick={handleClick}>
+          Your orders are: {orderItemsLength}
+        </a>
+      </p>
+      {showOrderIds && (
+        <ul>
+          {orderItems.map((item) => (
+            <li key={item.orderId}>Order ID: {item.orderId}</li>
+          ))}
+        </ul>
+      )}
       <h2>Books Catalog</h2>
       <ol>
         {books.map(book => (
