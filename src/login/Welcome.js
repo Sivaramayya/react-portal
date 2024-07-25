@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React, { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 
@@ -17,6 +18,20 @@ const Welcome = () => {
       <p><Link to="/Catalogue"><button type="submit">Catalogue</button></Link></p>
     </div>
   );
+=======
+import React from 'react';
+import OrderCount from '../orderdetails/OrderCount';
+import Catalog from '../catalog/Catalog';
+
+const Welcome = () => {
+  return(
+    <>
+     <OrderCount />
+     <Catalog />
+    </>
+ 
+);
+>>>>>>> Stashed changes
 };
 
 export default Welcome;
