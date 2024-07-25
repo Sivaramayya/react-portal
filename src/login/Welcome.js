@@ -8,11 +8,11 @@ const Welcome = () => {
   const [showOrderIds, setShowOrderIds] = useState(false);
   const handleClick = () => {
     setShowOrderIds(!showOrderIds);
-
+  }
 
   const [books, setBooks] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-  const { user, orderItemsLength } = useContext(UserContext);
+  
 
   useEffect(() => {
     fetchBooks();
