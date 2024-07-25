@@ -4,13 +4,12 @@ import { UserContext } from '../context/UserContext';
 import axios from 'axios';
 
 const Welcome = () => {
-  const { user } = useContext(UserContext);
+
   const [books, setBooks] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
-import { Link } from 'react-router-dom';
 
-const Welcome = () => {
+
   const { user, orderItemsLength } = useContext(UserContext);
 
   useEffect(() => {
