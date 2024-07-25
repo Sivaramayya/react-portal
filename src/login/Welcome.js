@@ -1,6 +1,5 @@
 import React, { useContext,useState,useEffect } from 'react';
 import { UserContext } from '../context/UserContext';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 const Welcome = () => {
