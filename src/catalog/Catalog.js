@@ -16,7 +16,8 @@ const Catalog = () => {
   const fetchBooks = async () => {
     try {
       const response = await axios.get('http://localhost:9191/book-service/books');
-      setBooks(response.data);
+      console.log(response.data);
+      setBooks(response.data.content);
     } catch (error) {
       console.error('Error fetching books:', error);
     }

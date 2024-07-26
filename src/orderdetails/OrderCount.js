@@ -23,7 +23,7 @@ const OrderCount = () => {
       
       console.log(bookIds);
       const booksResponse = await axios.get('http://localhost:9191/book-service/books');
-      const orderBooks = booksResponse.data.filter(book => bookIds.includes(book.id));
+      const orderBooks = booksResponse.data.content.filter(book => bookIds.includes(book.id));
       setOrderDetails(orderBooks);
     } catch (error) {
       console.error('Error fetching order details:', error);
