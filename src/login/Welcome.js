@@ -1,5 +1,4 @@
 import React from 'react';
-import OrderCount from '../orderdetails/OrderCount';
 import Catalog from '../catalog/Catalog';
 import Headers from '../components/Headers';
 import Footer from '../components/Footer';
@@ -10,7 +9,6 @@ const Welcome = () => {
     <>
      <Headers />
      <NavBar />
-     <OrderCount />
      <Catalog />
      <Footer />
     </>

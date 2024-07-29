@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../context/UserContext';
 import axios from 'axios';
 
@@ -6,6 +6,10 @@ const OrderCount = () => {
   const { user, orderItemsLength, orderItems } = useContext(UserContext);
   const [showOrderIds, setShowOrderIds] = useState(false);
   const [orderDetails, setOrderDetails] = useState(null);
+  
+  useEffect(() => {
+    handleClick();
+  }, []);
 
   const handleClick = () => {
     setShowOrderIds(!showOrderIds);
@@ -13,6 +17,7 @@ const OrderCount = () => {
 
   const handleOrderClick = async (orderId) => {
     try {
+      
       const orderResponse = await axios.get(`http://localhost:9191/order-management/orders/${orderId}`);
       console.log(orderResponse);
       const lineItems = orderResponse.data.lineItems;
@@ -32,13 +37,6 @@ const OrderCount = () => {
 
   return (
     <div>
-      <h1>Welcome {user.name}</h1>
-      {user && <p>Your user ID is: {user.userId}</p>}
-      <p>
-        <a href="#" onClick={handleClick}>
-          Your orders are: {orderItemsLength}
-        </a>
-      </p>
       {showOrderIds && (
         <ul>
           {orderItems.map((item) => (
